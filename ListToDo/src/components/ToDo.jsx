@@ -1,24 +1,23 @@
 import PropTypes from 'prop-types';
 
-Todo.propTypes = {
-    toDo: PropTypes.shape({
-        text: PropTypes.string,
-        category: PropTypes.string,
-    }).isRequired,
-};
-const Todo = ({ toDo }) => {
+const Todo = ({ toDo, deleteToDo }) => {
     return (
         <div className='toDo'>
             <div className='toDo-text'>
                 <p>{toDo.text}</p>
-                <p className='category'>{(toDo.category)}</p>
+                <p className='category'>{toDo.category}</p>
             </div>
-        <div>
-            <button className='complete'>Completar</button>
-            <button className='remove'>X</button>
+            <div>
+                <button className='complete'>Completar</button>
+                <button className='remove' onClick={() => deleteToDo(toDo.id)}>X</button>
+            </div>
         </div>
-      </div>
-    )
-}
+    );
+};
+
+Todo.propTypes = {
+    toDo: PropTypes.object.isRequired,
+    deleteToDo: PropTypes.func.isRequired
+};
 
 export default Todo;
