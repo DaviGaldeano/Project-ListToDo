@@ -1,8 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-
+import { useState } from 'react';
+import './App.css';
+import ToDo from './components/ToDo';
+import ToDoForm from './components/ToDoForm';
 function App() {
-  const [todos, setTodos] = useState([
+  const [toDo, setToDo] = useState([
   {
       id:1,
       text: "criar funcionalidade x no sistema",
@@ -22,24 +23,26 @@ function App() {
       isCompleted: false,
     }
   ]);
+
+  const addToDo = (text, category) => {
+    const newToDo = {
+      id: Date.now(),
+      text,
+      category,
+      isCompleted: false,
+    };
+    setToDo([...toDo, newToDo]);
+  }
+
     return (
-    <div className='app'>
-      <h1>Lista de Tarefas</h1>
-      <div className='todo-list'>
-      {todos.map((todo) => (
-        // eslint-disable-next-line react/jsx-key
-        <div className='todo'>
-          <div className='todo-text'>
-            <p>{todo.text}</p>
-            <p className='category'>{(todo.category)}</p>
-          </div>
-          <div>
-        <button>Completar</button>
-            <button>Excluir</button>
-          </div>
-        </div>
+      <div className='app'>
+        <h1>Lista de Tarefas</h1>
+        <div className='to-do-list'>
+        {toDo.map((toDo) => (
+        <ToDo toDo={toDo} key={toDo.id}/>
       ))}
-    </div>
+      </div>
+        <ToDoForm addToDo={addToDo}></ToDoForm>
   </div>
   )
 }
