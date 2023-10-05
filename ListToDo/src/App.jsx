@@ -3,6 +3,7 @@ import './App.css';
 import ToDo from './components/ToDo';
 import ToDoForm from './components/ToDoForm';
 import Search from './components/Search';
+import Filter from './components/Filter';
 function App() {
 
   const [toDo, setToDo] = useState([
@@ -66,6 +67,7 @@ function App() {
       <div className='app'>
         <h1>Lista de Tarefas</h1>
         <Search search={search} setSeacrh={setSearch}/>
+        <Filter/>
         <div className='to-do-list'>
         {
         toDo

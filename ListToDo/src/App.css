@@ -1,3 +1,6 @@
+/* Importe os estilos do Bootstrap no seu arquivo CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 body {
   font-family: Arial;
   background-color: rgb(255, 255, 255);
@@ -41,6 +44,7 @@ button {
   margin-top: 10px;
   opacity: 0.8;
   transition: 0.3;
+  margin-right: 2px;
 }
 
 button:hover {
@@ -82,4 +86,25 @@ input, select {
 
 .remove {
   background-color: #f84040fc;
+}
+
+.filter,
+.search {
+  border-bottom: 1px solid #555;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+
+.filter-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.filter-options-div {
+  flex: 1 1 0;
+}
+
+.order {
+  margin-right: 5px;
 }
